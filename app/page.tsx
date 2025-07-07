@@ -1,9 +1,5 @@
 "use client"
 import React from 'react'
-import Problems from './components/problems';
-import SideBar from './components/SideBar';
-import CompaniesBox from './components/Company';
-import Background from "./components/Background"
 import GridDistortion from './components/GridDistortion';
 
  function Home() {
