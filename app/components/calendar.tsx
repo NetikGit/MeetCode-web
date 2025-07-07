@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import dayjs from "dayjs";
 
@@ -9,7 +9,6 @@ export default function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(today);
 
   const startOfMonth = currentMonth.startOf("month");
-  const endOfMonth = currentMonth.endOf("month");
   const startDay = startOfMonth.day();
   const daysInMonth = currentMonth.daysInMonth();
 

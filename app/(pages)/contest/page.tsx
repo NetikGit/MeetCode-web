@@ -2,7 +2,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div className='text-bold text-6xl'>
       Contest
     </div>
   )
