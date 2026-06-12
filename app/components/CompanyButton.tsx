@@ -1,36 +1,46 @@
-import React from 'react';
+"use client";
+import React from "react";
 
-const CompaniesDetail = [
-  { name: "Amazon", vacancy: 1928, id: 1 },
-  { name: "Replit", vacancy: 1028, id: 2 },
-  { name: "Google", vacancy: 1208, id: 3 },
-  { name: "Flipkart", vacancy: 1632, id: 4 },
-  { name: "BharatPay", vacancy: 193, id: 5 },
-  { name: "Shopify", vacancy: 1288, id: 6 },
-  { name: "Telegram", vacancy: 321, id: 7 },
-  { name: "LeetCode", vacancy: 145, id: 8 },
-  { name: "Pari", vacancy: 1918, id: 9 },
-  { name: "1xBet", vacancy: 168, id: 10 },
-  { name: "Shadcn", vacancy: 765, id: 11 },
-  { name: "AccternityUI", vacancy: 138, id: 12 },
-  { name: "Spotify", vacancy: 108, id: 13 },
-  { name: "Steam", vacancy: 1648, id: 14 },
-  { name: "Forcenic", vacancy: 17, id: 15 },
-];
+interface Company {
+  name: string;
+  vacancy: number;
+  id: number;
+}
 
-const CompanyButton = () => {
+interface CompanyButtonProps {
+  companies: Company[];
+  selectedCompany: string;
+  setSelectedCompany: (company: string) => void;
+}
+
+const CompanyButton: React.FC<CompanyButtonProps> = ({
+  companies,
+  selectedCompany,
+  setSelectedCompany,
+}) => {
   return (
     <>
-      {CompaniesDetail.map((item) => (
-        <div className="flex w-full h-full pt-2 pl-2" key={item.id}>
-          <div className="text-sm text-white p-2 bg-stone-900 rounded-xl flex items-center gap-2">
-            {item.name}
-            <button className="text-xs bg-orange-400 px-2 py-1 rounded-xl">
+      {companies.map((item) => {
+        const isActive = selectedCompany === item.name;
+        return (
+          <button
+            key={item.id}
+            onClick={() => setSelectedCompany(isActive ? "all" : item.name)}
+            className={`flex items-center justify-between w-full p-2 rounded-xl border transition-all duration-200 cursor-pointer ${
+              isActive
+                ? "bg-orange-500/10 border-orange-500/30 text-orange-400"
+                : "bg-stone-900/40 border-stone-850 text-stone-300 hover:border-orange-500/25"
+            }`}
+          >
+            <span className="text-xs font-medium truncate">{item.name}</span>
+            <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-md ${
+              isActive ? "bg-orange-500 text-stone-950" : "bg-stone-800 text-stone-400 group-hover:bg-stone-705"
+            }`}>
               {item.vacancy}
-            </button>
-          </div>
-        </div>
-      ))}
+            </span>
+          </button>
+        );
+      })}
     </>
   );
 };
