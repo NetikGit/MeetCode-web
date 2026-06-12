@@ -18,47 +18,47 @@ const Problems = () => {
 
   return (
     <div>
-      <Carousel>
+      <Carousel className="w-full">
         <CarouselContent>
-          <CarouselItem className="basis-1/3">
-              <Image
-    src="/poster1.png"
-    alt="Poster"
-    fill
-    className="object-cover"
-  />
+          <CarouselItem className="basis-1/3 relative h-48">
+            <Image
+              src="/poster1.png"
+              alt="Poster"
+              fill
+              className="object-cover rounded-xl"
+            />
           </CarouselItem>
-          <CarouselItem className="basis-1/3">
-              <Image
-    src="/poster2.png"
-    alt="Poster2"
-    fill
-    className="object-cover"
-  />
+          <CarouselItem className="basis-1/3 relative h-48">
+            <Image
+              src="/poster2.png"
+              alt="Poster2"
+              fill
+              className="object-cover rounded-xl"
+            />
           </CarouselItem>
-          <CarouselItem className="basis-1/3">
-              <Image
-    src="/poster3.png"
-    alt="Poster3"
-    fill
-    className="object-cover"
-  />
+          <CarouselItem className="basis-1/3 relative h-48">
+            <Image
+              src="/poster3.png"
+              alt="Poster3"
+              fill
+              className="object-cover rounded-xl"
+            />
           </CarouselItem>
-          <CarouselItem className="basis-1/3">
-              <Image
-    src="/poster4.png"
-    alt="Poster4"
-    fill
-    className="object-cover"
-  />
+          <CarouselItem className="basis-1/3 relative h-48">
+            <Image
+              src="/poster4.png"
+              alt="Poster4"
+              fill
+              className="object-cover rounded-xl"
+            />
           </CarouselItem>
-          <CarouselItem className="basis-1/3">
-              <Image
-    src="/poster5.png"
-    alt="Poster5"
-    fill
-    className="object-cover"
-  />
+          <CarouselItem className="basis-1/3 relative h-48">
+            <Image
+              src="/poster5.png"
+              alt="Poster5"
+              fill
+              className="object-cover rounded-xl"
+            />
           </CarouselItem>
         </CarouselContent>
       </Carousel>
