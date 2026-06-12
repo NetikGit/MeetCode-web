@@ -73,9 +73,6 @@ const TIPS = [
 ];
 
 /* ── difficulty color helper ───────────────────────────────────── */
-const diffColor = (d: string) =>
-  d === "Easy" ? "text-green-400" : d === "Medium" ? "text-yellow-400" : "text-red-400";
-
 const diffBg = (d: string) =>
   d === "Easy"
     ? "bg-green-500/15 border-green-500/30 text-green-400"

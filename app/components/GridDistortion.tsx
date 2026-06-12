@@ -170,24 +170,26 @@ const GridDistortion: React.FC<GridDistortionProps> = ({
       uniforms.time.value += 0.05;
 
       const data = dataTexture.image.data;
-      for (let i = 0; i < size * size; i++) {
-        data[i * 4] *= relaxation;
-        data[i * 4 + 1] *= relaxation;
-      }
+      if (data) {
+        for (let i = 0; i < size * size; i++) {
+          data[i * 4] *= relaxation;
+          data[i * 4 + 1] *= relaxation;
+        }
 
-      const gridMouseX = size * mouseState.x;
-      const gridMouseY = size * mouseState.y;
-      const maxDist = size * mouse;
+        const gridMouseX = size * mouseState.x;
+        const gridMouseY = size * mouseState.y;
+        const maxDist = size * mouse;
 
-      for (let i = 0; i < size; i++) {
-        for (let j = 0; j < size; j++) {
-          const distSq =
-            Math.pow(gridMouseX - i, 2) + Math.pow(gridMouseY - j, 2);
-          if (distSq < maxDist * maxDist) {
-            const index = 4 * (i + size * j);
-            const power = Math.min(maxDist / Math.sqrt(distSq), 10);
-            data[index] += strength * 100 * mouseState.vX * power;
-            data[index + 1] -= strength * 100 * mouseState.vY * power;
+        for (let i = 0; i < size; i++) {
+          for (let j = 0; j < size; j++) {
+            const distSq =
+              Math.pow(gridMouseX - i, 2) + Math.pow(gridMouseY - j, 2);
+            if (distSq < maxDist * maxDist) {
+              const index = 4 * (i + size * j);
+              const power = Math.min(maxDist / Math.sqrt(distSq), 10);
+              data[index] += strength * 100 * mouseState.vX * power;
+              data[index + 1] -= strength * 100 * mouseState.vY * power;
+            }
           }
         }
       }

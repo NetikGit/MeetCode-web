@@ -79,8 +79,6 @@ const STUDY_PLANS = [
 ];
 
 /* ── helpers ───────────────────────────────────────────────────── */
-const diffColor = (d: string) =>
-  d === "Easy" ? "text-green-400" : d === "Medium" ? "text-yellow-400" : "text-red-400";
 const diffBg = (d: string) =>
   d === "Easy"
     ? "bg-green-500/15 border-green-500/30 text-green-400"
@@ -123,7 +121,7 @@ function ExploreCarousel({
 
       <Carousel opts={{ align: "start" }}>
         <CarouselContent>
-          {cards.map((card, i) => (
+          {cards.map((card) => (
             <CarouselItem key={card.id} className="basis-1/2 md:basis-1/3 lg:basis-1/4">
               <motion.div
                 whileHover={{ y: -8, scale: 1.02 }}
